@@ -4,10 +4,12 @@ import Footer from "./components/Footer";
 import Items from "./components/Items";
 import { items } from "./items/items";
 import Categories from "./components/Categories";
+import UserProfile from "./components/UserProfile";
 
 export const App = () => {
   const [orders, setOrders] = useState([]);
   const [filteredItems, setFilteredItems] = useState(items);
+  const [isProfileOpen, setIsProfileOpen] = useState(false); 
   const handleAddToCart = (item) => {
     const existingOrder = orders.find(order => order.id === item.id);
     
@@ -24,13 +26,22 @@ export const App = () => {
       setOrders([...orders, newOrder]);
     }
   }
+  const toggleProfile = () => {
+    setIsProfileOpen(!isProfileOpen);
+  };
 
   return (
     <div className='wrapper'>
-      <Header orders={orders} setOrders={setOrders}/>
-      <Categories items={items} setFilteredItems={setFilteredItems}/> 
-      <Items items={filteredItems} addToCart={handleAddToCart} /> 
-      <Footer />
+      <Header orders={orders} setOrders={setOrders} toggleProfile={toggleProfile}/> 
+      {isProfileOpen ? ( 
+        <UserProfile user={{ name: "User", email: "user@example.com", address: "123 Street" }} />
+      ) : (
+        <>
+          <Categories items={items} setFilteredItems={setFilteredItems}/> 
+          <Items items={filteredItems} addToCart={handleAddToCart} /> 
+          <Footer />
+        </>
+      )}
     </div>
   );
-}
+};

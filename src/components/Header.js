@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { Orders } from './Orders';
 
-export default function Header({ orders, setOrders }) { 
+export default function Header({ orders, setOrders, toggleProfile }) { 
   const [CartOpen, setCartOpen] = useState(false);
 
   const toggleCart = () => {
@@ -20,7 +20,7 @@ export default function Header({ orders, setOrders }) {
         <ul className='nav'>
           <li> Про нас   </li>
           <li> Контакти  </li>
-          <li> Кабінет   </li>
+          <li onClick={toggleProfile}> Кабінет   </li> 
         </ul>
         <button className='shop-cart-button' onClick={toggleCart}>
           <FaShoppingCart 

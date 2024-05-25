@@ -1,0 +1,110 @@
+.user-profile-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .user-profile-container h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .user-profile-info,
+  .edit-profile-form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+  }
+  
+  .user-profile-info p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .user-profile-info button,
+  .edit-profile-form button,
+  .user-actions button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .user-profile-info button:hover,
+  .edit-profile-form button:hover,
+  .user-actions button:hover {
+    background-color: #0056b3;
+  }
+  
+  .user-actions {
+    margin-top: 20px;
+  }
+  
+  .user-actions h3 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #333;
+  }
+  
+  .user-actions ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  .user-actions li {
+    margin-bottom: 10px;
+  }
+  
+  .user-actions button {
+    width: 100%;
+  }
+  
+  .user-profile-info input,
+  .edit-profile-form input,
+  .user-profile-info textarea,
+  .edit-profile-form textarea {
+    width: calc(100% - 24px);
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  .user-profile-info input:focus,
+  .edit-profile-form input:focus,
+  .user-profile-info textarea:focus,
+  .edit-profile-form textarea:focus {
+    border-color: #007bff;
+  }
+  
+  .user-profile-info label,
+  .edit-profile-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .user-profile-info textarea,
+  .edit-profile-form textarea {
+    height: 80px;
+  }
+  
+  .user-profile-info button,
+  .edit-profile-form button,
+  .user-actions button {
+    display: inline-block;
+    width: auto;
+  }
