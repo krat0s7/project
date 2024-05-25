@@ -1,17 +1,21 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { addOrder, deleteOrder } from '../state/orders/actions';
 
-export const Orders = ({ orders, setOrders }) => {
-  // Загальна кількість товарів
+export const Orders = () => {
+  const dispatch = useDispatch();
+  const { orders, loading, error } = useSelector(state => state.orders);
+
   const getTotalQuantity = (orderId) => {
     return orders.reduce((total, order) => {
       return order.id === orderId ? total + order.quantity : total;
     }, 0);
   };
 
-  const deleteOrder = (id) => {
-    setOrders(orders.filter(order => order.id !== id));
-  };
+  const handleDeleteOrder = (orderId) => {
+    dispatch(deleteOrder(orderId));
+};
 
   const incrementQuantity = (id) => {
     const updatedOrders = orders.map(order => {
@@ -20,7 +24,8 @@ export const Orders = ({ orders, setOrders }) => {
       }
       return order;
     });
-    setOrders(updatedOrders);
+    dispatch(addOrder(updatedOrders));
+
   };
 
   const decrementQuantity = (id) => {
@@ -30,7 +35,7 @@ export const Orders = ({ orders, setOrders }) => {
       }
       return order;
     });
-    setOrders(updatedOrders);
+    dispatch(addOrder(updatedOrders));
   };
 
   const totalAmount = orders.reduce((total, order) => total + parseFloat(order.price) * order.quantity, 0);
@@ -54,7 +59,7 @@ export const Orders = ({ orders, setOrders }) => {
             <button className="quantity-btn" onClick={() => incrementQuantity(order.id)}>
               +
             </button>
-            <FaTrash className='delete-icon' onClick={() => deleteOrder(order.id)} />
+            <FaTrash className='delete-icon' onClick={() => handleDeleteOrder(order.id)} />
           </li>
         ))}
       </ul>

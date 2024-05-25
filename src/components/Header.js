@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { Orders } from './Orders';
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
+import RoutesConfig from '../constants/Routes';
 
-export default function Header({ orders, setOrders, toggleProfile }) { 
+export default function Header() { 
+  const { orders } = useSelector(state => state.orders);
   const [CartOpen, setCartOpen] = useState(false);
+  const nav = useNavigate();
 
   const toggleCart = () => {
     setCartOpen(!CartOpen);
@@ -14,13 +19,13 @@ export default function Header({ orders, setOrders, toggleProfile }) {
   };
 
   return (
-    <header>
+    <header style={{padding: "40px 70px"}}>
       <div>
-        <span className='logo'>Tasty</span>
+          <p className='logo' onClick={() => nav(RoutesConfig.Main.path)}>Tasty</p> 
         <ul className='nav'>
-          <li> Про нас   </li>
-          <li> Контакти  </li>
-          <li onClick={toggleProfile}> Кабінет   </li> 
+        <Link to={RoutesConfig.About.path}>Про нас</Link>
+        <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
+        <Link to={RoutesConfig.Cabinet.path}>Кабінет</Link>
         </ul>
         <button className='shop-cart-button' onClick={toggleCart}>
           <FaShoppingCart 
@@ -33,13 +38,12 @@ export default function Header({ orders, setOrders, toggleProfile }) {
               {orders.length === 0 ? (
                 <p className='empty'>Товарів немає</p>
               ) : (
-                <Orders orders={orders} setOrders={setOrders}/>
+                <Orders />
               )}
             </div>
           </div>
         )}
       </div>
-      <div className='presentation'></div>
     </header>
   )
 }
