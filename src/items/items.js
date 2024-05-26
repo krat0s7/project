@@ -5,7 +5,8 @@ export const items = [
       img: '../../../img/Mafia.jpg',
       desc: 'Куряче філе, шинка, мисливські ковбаски, пепероні, сир моцарела, гриби, цибуля, петрушка, соус барбекю та трюфельна олія.',    
       category: 'Піца',
-      price: '85'
+      price: '85',
+      quantity: 0
     },
     {
       id: 2,
@@ -13,7 +14,8 @@ export const items = [
       img: '../../../img/chisburger.jpg',
       desc: 'Яловичий стейк натуральний, скибочка сиру чеддер, скибочка маринованого огірка та цибуля, приправлені гірчицею та кетчупом, у булочці з пшеничного борошна.',    
       category: 'Бургери',
-      price: '160'
+      price: '160',
+      quantity: 0
     },
     {
       id: 3,
@@ -21,7 +23,9 @@ export const items = [
       img: '../../../img/pistacie_is.jpg',
       desc: 'Молоко, вершки 36%, цукор, сироп глюкози, декстроза, сухе молоко, фісташкова паста, фісташковий горіх.',
       category: 'Морозиво',
-      price: '55'
+      price: '55',
+      quantity: 0
+
     },
     {
       id: 4,
@@ -29,7 +33,8 @@ export const items = [
       img: '../../../img/salat-cezar.jpg',
       desc: 'Пшеничні грінки (чіпси), листя салату ромен і тертий пармезан, заправлені соусом.',
       category: 'Салати',
-      price: '120'
+      price: '120',
+      quantity: 0
     },
     {
       id: 5,
@@ -37,6 +42,7 @@ export const items = [
       img: '../../../img/coca-cola.jpg',
       desc: 'Кока-кола, лід.',
       category: 'Напої',
-      price: '25'
+      price: '25',
+      quantity: 0
     }
   ]

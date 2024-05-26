@@ -28,6 +28,11 @@ export default function MainPage( ) {
 
     return(
         <>
+            <div className='presentation'>
+              <p className="text">Смак, на який ви заслуговуєте</p>
+              <p className="text"> по низьким цінам</p>
+            </div>
+
             <Categories items={items} setFilteredItems={setFilteredItems}/> 
             <Items items={filteredItems} addToCart={handleAddToCart} /> 
         </>

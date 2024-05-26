@@ -4,9 +4,11 @@ import Item from './Item';
 const Items = ({ items, addToCart }) => {
     return (
       <main>
-        {items.map(el => (
-            <Item key={el.id} item={el} addToCart={addToCart} />
-        ))}
+        <div className='items'>
+          {items.map(el => (
+              <Item key={el.id} item={el} addToCart={addToCart} />
+          ))}
+        </div>
       </main>
     )
 };

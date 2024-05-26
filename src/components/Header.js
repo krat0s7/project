@@ -8,6 +8,7 @@ import RoutesConfig from '../constants/Routes';
 export default function Header() { 
   const { orders } = useSelector(state => state.orders);
   const [CartOpen, setCartOpen] = useState(false);
+  const [burgerActive, setBurgerActive] = useState(false)
   const nav = useNavigate();
 
   const toggleCart = () => {
@@ -17,21 +18,35 @@ export default function Header() {
       wrapperElement.classList.toggle('blur-background');
     }
   };
-
+  console.log(burgerActive);
   return (
-    <header style={{padding: "40px 70px"}}>
+    <header>
       <div>
+        <nav className='nav'>
           <p className='logo' onClick={() => nav(RoutesConfig.Main.path)}>Tasty</p> 
-        <ul className='nav'>
-        <Link to={RoutesConfig.About.path}>Про нас</Link>
-        <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
-        <Link to={RoutesConfig.Cabinet.path}>Кабінет</Link>
-        </ul>
-        <button className='shop-cart-button' onClick={toggleCart}>
-          <FaShoppingCart 
-            className={`shop-cart-button ${CartOpen && 'active'}`} 
-          />
-        </button>
+          <ul className='nav-list'>
+            <Link to={RoutesConfig.About.path}>Про нас</Link>
+            <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
+            <Link to={RoutesConfig.Cabinet.path}>Кабінет</Link>
+          </ul>
+          <button className='shop-cart-button' onClick={toggleCart}>
+            <FaShoppingCart  
+              className={`shop-cart-button ${CartOpen && 'active'}`} 
+            />
+          </button>
+          <button className={`burger ${burgerActive ? "active" : ""}`} onClick={() => setBurgerActive(!burgerActive)}>
+            <span className='burger-span'></span>
+            <span className='burger-span'></span>
+            <span className='burger-span'></span>
+          </button>
+        </nav>
+        <div className={`mobile-menu ${burgerActive ? "active" : ""}`}>
+          <ul className='nav-list-mobile'>
+              <Link to={RoutesConfig.About.path}>Про нас</Link>
+              <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
+              <Link to={RoutesConfig.Cabinet.path}>Кабінет</Link>
+            </ul>
+        </div>
         {CartOpen && (
           <div className={'cart-container'}>
             <div className={orders.length !== 0 ? 'shop-cart' : "empty-cart"}>

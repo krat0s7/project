@@ -10,7 +10,6 @@ export const App = () => {
     <>
       <BrowserRouter>
         <Header />
-
         <Routes>
           <Route path={RoutesConfig.Main.path} element={<RoutesConfig.Main.component />} />
           <Route path={RoutesConfig.About.path} element={<RoutesConfig.About.component />} />

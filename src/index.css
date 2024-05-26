@@ -2,7 +2,14 @@
 *:not(.cart-container) {
   margin: 0;
   padding: 0;
+}
 
+header{
+  padding: 70px;
+  position: fixed;
+  background-color: #000;
+  width: 100%;
+  z-index: 9999999;
 }
 
 .empty-cart{
@@ -39,6 +46,8 @@ body {
     font-size: 30px;
     color: white;
     display: block;
+    position: relative;
+    cursor: pointer;
   }
   
   .logo::after{
@@ -56,44 +65,58 @@ body {
   }
 
   .nav{
-    justify-content: center;
+    margin: 20px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     gap: 1rem;
     list-style: none;
     font-size: 1.5rem;
     color: white;
-    position: relative;
-    top: -11px;
+    padding: 10px;
+  }
+  .nav-list{
+    display: flex;
+    gap: 1rem;
   }
 
-  ul.nav li {
-    display: inline;
-    margin-left: 25px; 
-    cursor: pointer;
-    transition: opacity 0.4s; 
-}
+  .nav-list-mobile{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-left: 30px;
+    margin-top: 100px;
+  }
+
+  .nav-list a {
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+  }
+
+  .nav-list-mobile a {
+    font-size: 3.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: .3s;
+  }
+
+  .nav-list a:hover{
+    opacity: 0.7;
+    transition: .3s;
+  }
 
   ul.nav li:hover {
     opacity: 0.5; 
-}
+  }
 
   .shop-cart-button{
     cursor: pointer;
-    float: right;
     transition: .4s;
     font-size: 30px;
     background-color: transparent;
     color: red;
     border: 0;
-    position: relative;
-    top: -20px;
-  }
-
-  .shop-cart-button:hover,
-  .shop-cart-button.active{
-    color: #dc3d3d;
-    transform: scale(1.5);
-    
   }
 
   .shop-cart{
@@ -104,13 +127,14 @@ body {
     position: absolute;
     padding: 20px 0;
     right: 0;
-    width: 450px;
-    min-height: 600px;
+    width: min(450px, 100%);
+    height: 400px;
+    overflow-y: auto;
     background:#f8fcf8;
     -webkit-box-shadow: 6px 9px 20px 0px rgba(207, 193, 193, 0.69);
     -moz-box-shadow: 6px 9px 20px 0px rgba(207, 193, 193, 0.69);
     box-shadow: 6px 9px 20px 0px rgba(207, 193, 193, 0.69);
-    z-index: 1000;
+    z-index: 999999999;
     border: #030303;
   }
 
@@ -209,7 +233,10 @@ body {
    text-transform: uppercase;
    letter-spacing: 2px;
   }
-
+  .order-summary{
+    display: flex;
+    justify-content: center;
+  }
   .button-total{
     border-radius: 150px;
     background-color: #ffb302;
@@ -217,11 +244,14 @@ body {
     height: 45px;
     width: 300px;
     cursor: pointer;
-    
   }
 
-  header .presentation{
-    margin: 50px 0;
+  .presentation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
     background: url('./img/image.jpg') no-repeat;
     width: 100%;
     height: 500px;
@@ -229,34 +259,20 @@ body {
     background-position: center center;
     background-blend-mode: multiply;
     background-color: #bcbcbc;
-    position: relative;
+    
   }
 
-  header .presentation::after{
-    content: 'Смак, на який ви заслуговуєте';
-    position: absolute;
-    top: 130px;
-    left: 850px;
-    width: 350px;
+  .presentation .text{
     font-size: 40px;
     font-weight: bold;
     color: #fff;
+    text-align: center;
   }
-
-  header .presentation::before{
-    content: 'по низьким цінам';
-    position: absolute;
-    top: 227px;
-    left: 850px;
-    width: 150px;
-    font-size: 15px;
-    font-weight: bold;
-    color: #fff;
-  }
-
   .categories {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
+    overflow-x: auto;
 }
 
 .categories div {
@@ -267,8 +283,6 @@ body {
     margin-right: 15px;
     cursor: pointer;
     border: 2.5px solid transparent;
-    position: relative;
-    top: -25px;
     transition: .4s;
 }
 
@@ -277,17 +291,17 @@ body {
     transform: scale(1.1);
   }
 
-  main{
+  .items{
     display: flex;
     width: 100%;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 3rem;
     justify-content: center;
   
   }
-
   .item{
-    max-width: 30%;
+    margin: 10px;
+    max-width: 500px;
     max-height: 30%;
     width: auto;
     height: auto;
@@ -296,7 +310,6 @@ body {
     overflow: hidden;
     position: relative;
     padding-bottom: 20px;
-    gap: 10px;
     color: #aca6a6;
   }
 
@@ -344,6 +357,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    gap: 1rem;
     height: 100%;
     padding: 40px;
   }
@@ -403,4 +419,62 @@ body {
   .footer-rights {
     color: #fff;
     margin-left: 20px; 
+  }
+
+  .burger{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: 0;
+  }
+  .burger.active .burger-span:nth-child(1){
+    transform: translateY(26px) rotate(45deg);
+  }
+
+  .burger.active .burger-span:nth-child(2){
+    display: none;
+  }
+
+  .burger.active .burger-span:nth-child(3){
+    transform: translateY(-20px) rotate(-45deg);
+  }
+  .burger .burger-span{
+    transition: .3s;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+  }
+
+  .mobile-menu{
+    transform: translateY(-1500px);
+    height: 100vh;
+    transition: .5s;
+    position: absolute;
+    z-index: 99999;
+    background: #000;
+    width: 100vw;
+  }
+
+  .mobile-menu.active   {
+    transform: translateY(-10px);
+    transition: .5s;
+  }
+  @media screen and (max-width: 768px){
+    header{
+      padding: 10px 20px;
+    }
+    .nav-list{
+      display: none;
+    }
+    .burger{
+      display: flex;
+    }
+    .categories{
+      justify-content: flex-start;
+    }
   }
