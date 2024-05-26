@@ -1,47 +1,27 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RoutesConfig from "./constants/Routes";
 import Footer from "./components/Footer";
-import Items from "./components/Items";
-import { items } from "./items/items";
-import Categories from "./components/Categories";
-import UserProfile from "./components/UserProfile";
+import Header from "./components/Header";
 
 export const App = () => {
-  const [orders, setOrders] = useState([]);
-  const [filteredItems, setFilteredItems] = useState(items);
-  const [isProfileOpen, setIsProfileOpen] = useState(false); 
-  const handleAddToCart = (item) => {
-    const existingOrder = orders.find(order => order.id === item.id);
-    
-    if (existingOrder) {
-      const updatedOrders = orders.map(order => {
-        if (order.id === item.id) {
-          return { ...order, quantity: order.quantity + 1 }; 
-        }
-        return order;
-      });
-      setOrders(updatedOrders);
-    } else {
-      const newOrder = { ...item, quantity: 1 }; 
-      setOrders([...orders, newOrder]);
-    }
-  }
-  const toggleProfile = () => {
-    setIsProfileOpen(!isProfileOpen);
-  };
-
+  
   return (
-    <div className='wrapper'>
-      <Header orders={orders} setOrders={setOrders} toggleProfile={toggleProfile}/> 
-      {isProfileOpen ? ( 
-        <UserProfile user={{ name: "User", email: "user@example.com", address: "123 Street" }} />
-      ) : (
-        <>
-          <Categories items={items} setFilteredItems={setFilteredItems}/> 
-          <Items items={filteredItems} addToCart={handleAddToCart} /> 
-          <Footer />
-        </>
-      )}
-    </div>
+    <>
+      <BrowserRouter>
+        <Header />
+
+        <Routes>
+          <Route path={RoutesConfig.Main.path} element={<RoutesConfig.Main.component />} />
+          <Route path={RoutesConfig.About.path} element={<RoutesConfig.About.component />} />
+          <Route path={RoutesConfig.Contacts.path} element={<RoutesConfig.Contacts.component />} />
+          <Route path={RoutesConfig.Cabinet.path} element={<RoutesConfig.Cabinet.component />} />
+        </Routes>
+
+        <Footer/>
+      </BrowserRouter>
+    </>
   );
 };
+
+export default App;
