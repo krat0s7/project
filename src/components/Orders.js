@@ -7,6 +7,8 @@ export const Orders = () => {
   const dispatch = useDispatch();
   const { orders } = useSelector(state => state.orders);
 
+  
+
   const handleDeleteOrder = (orderId) => {
     dispatch(deleteOrder(orderId));
   };
@@ -25,25 +27,27 @@ export const Orders = () => {
 
   return (
     <div className="orders">
-      <h2 className='title-cart'>Корзина</h2>
-      <ul>
-        {orders.map((order) => (
-          <li key={order.id} className={"shopping-cart__item"}>
-            <img src={order.img} alt={order.title} width="50" />
-            <span>
-              {order.title} - {order.price} грн (кількість: {order.quantity})
-            </span>
-            <button className="quantity-btn" onClick={() => decrementQuantity(order.id)}>
-              -
-            </button>
-            <span className="quantity">{order.quantity}</span>
-            <button className="quantity-btn" onClick={() => incrementQuantity(order.id)}>
-              +
-            </button>
-            <FaTrash className='delete-icon' onClick={() => handleDeleteOrder(order.id)} />
-          </li>
-        ))}
-      </ul>
+      <div>
+        <h2 className='title-cart'>Корзина</h2>
+        <ul>
+          {orders.map((order) => (
+            <li key={order.id} className={"shopping-cart__item"}>
+              <img src={order.img} alt={order.title} width="50" />
+              <span>
+                {order.title} - {order.price} грн (кількість: {order.quantity})
+              </span>
+              <button className="quantity-btn" onClick={() => decrementQuantity(order.id)}>
+                -
+              </button>
+              <span className="quantity">{order.quantity}</span>
+              <button className="quantity-btn" onClick={() => incrementQuantity(order.id)}>
+                +
+              </button>
+              <FaTrash className='delete-icon' onClick={() => handleDeleteOrder(order.id)} />
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="order-summary">
         <button className='button-total'>
           <p className='total-price'> Оформити за {totalPrice} грн</p>
