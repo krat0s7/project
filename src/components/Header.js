@@ -18,7 +18,7 @@ export default function Header() {
       wrapperElement.classList.toggle('blur-background');
     }
   };
-  console.log(burgerActive);
+  
   return (
     <header>
       <div>
