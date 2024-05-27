@@ -64,6 +64,11 @@ body {
     border-radius: 50%;
   }
 
+  .logo:hover {
+    transform: scale(1.1); 
+    transition: .4s;
+}
+
   .nav{
     margin: 20px;
     display: flex;
@@ -352,75 +357,79 @@ body {
     text-align: center;
     width: 100%;
     box-shadow: 0px -2px 10px rgba(72, 72, 72, 0.982);
-  }
-  
-  .footer-content {
+}
+
+.footer-content {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap;
     margin: 0 auto;
     gap: 1rem;
     height: 100%;
     padding: 40px;
-  }
+}
 
-  .footer-logo{
-    font-size: 30px;
+.footer-logo {
+    font-size: 50px;
     color: white;
     display: block;
     position: relative;
-    padding: 10px 10px; 
-  }
+    padding: 10px 1px; 
+    margin-left: 0; 
+}
 
-  .footer-logo::after{ 
-    font-size: 24px;
+.footer-logo::after { 
+    font-size: 55px;
     font-weight: bold;
-    content:'' ;
+    content: '';
     position: absolute;
-    left: 95px;
-    width: 30px;
-    height: 30px;
+    left: 150px;
+    width: 55px;
+    height: 55px;
     background: #dc3d3d;
-    top: 16px;
+    top: 18px;
     background-image: url('img/tasty.jpg');
-    background-size:contain;
+    background-size: contain;
     background-position: center;
     border-radius: 50%;
-  }
+}
 
-  .footer-logo:hover {
+.footer-logo:hover {
     transform: scale(1.1); 
     transition: .4s;
-  }
-  
-  .footer-contact {
+}
+
+.footer-contact {
     text-align: center;
-  }
-  
-  .footer-social-icons {
+    font-size: 20px;
+}
+
+.footer-social-icons {
     display: flex;
     align-items: center;
     margin-right: 20px; 
-  }
-  
-  .footer-social-icons a {
+    font-size: 30px;
+}
+
+.footer-social-icons a {
     color: #fff;
     text-decoration: none;
     transition: color 0.3s ease;
     margin-right: 20px;
-  }
-  
-  .footer-social-icons a:hover {
+}
+
+.footer-social-icons a:hover {
     color: #61e42d;
     transform: scale(1.2);
     transition: .4s;
-  }
-  
-  .footer-rights {
+}
+
+.footer-rights {
     color: #fff;
-    margin-left: 20px; 
-  }
+    font-size: 20px;
+}
+
 
   .burger{
     display: none;

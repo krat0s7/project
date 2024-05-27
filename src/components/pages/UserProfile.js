@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './UserProfile.css'; 
 
 const UserProfile = ({ user }) => {
-  const [editing, setEditing] = useState(false);
+  const [editing, setEditing] = useState(true);
   const [formData, setFormData] = useState({
     name: user.name,
     email: user.email,
@@ -26,48 +26,48 @@ const UserProfile = ({ user }) => {
   };
 
   const handleOrderHistoryClick = () => {
-    alert("Redirecting to Order History page");
+    alert("Перенаправлення на сторінку «Історія замовлень»");
   };
 
   const handleMyReviewsClick = () => {
-    alert("Redirecting to My Reviews page");
+    alert("Перенаправлення на сторінку Мої відгуки");
   };
 
   const handleChangePasswordClick = () => {
-    alert("Opening Change Password modal");
+    alert("Відкривається модальна зміна пароля");
   };
 
   return (
     <div className="user-profile-container">
       {editing ? (
         <div className="edit-profile-form">
-          <h2>Edit Profile</h2>
+          <h2>Редагувати профіль</h2>
           <form>
-            <label>Name:</label>
+            <label>Ім'я:</label>
             <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
-            <label>Email:</label>
+            <label>Електронна пошта:</label>
             <input type="email" name="email" value={formData.email} onChange={handleInputChange} />
-            <label>Address:</label>
+            <label>Адреса:</label>
             <textarea name="address" value={formData.address} onChange={handleInputChange} />
           </form>
-          <button onClick={handleSaveClick}>Save</button>
+          <button onClick={handleSaveClick}>Зберегти</button>
         </div>
       ) : (
         <div className="user-profile-info">
-          <h2>User Profile</h2>
-          <p><strong>Name:</strong> {user.name}</p>
-          <p><strong>Email:</strong> {user.email}</p>
-          <p><strong>Address:</strong> {user.address}</p>
-          <button onClick={handleEditClick}>Edit</button>
+          <h2>Профіль користувача</h2>
+          <p><strong>Ім'я:</strong> {user.name}</p>
+          <p><strong>Електронна пошта:</strong> {user.email}</p>
+          <p><strong>Адреса:</strong> {user.address}</p>
+          <button onClick={handleEditClick}>Редагувати</button>
         </div>
       )}
 
       <div className="user-actions">
-        <h3>User Actions</h3>
+        <h3>Дії користувача</h3>
         <ul>
-          <li><button onClick={handleOrderHistoryClick}>Order History</button></li>
-          <li><button onClick={handleMyReviewsClick}>My Reviews</button></li>
-          <li><button onClick={handleChangePasswordClick}>Change Password</button></li>
+          <li><button onClick={handleOrderHistoryClick}>Історія Замовлень</button></li>
+          <li><button onClick={handleMyReviewsClick}>Мої відгуки</button></li>
+          <li><button onClick={handleChangePasswordClick}>Змінити пароль</button></li>
         </ul>
       </div>
     </div>

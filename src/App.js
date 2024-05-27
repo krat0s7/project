@@ -16,7 +16,6 @@ export const App = () => {
           <Route path={RoutesConfig.Contacts.path} element={<RoutesConfig.Contacts.component />} />
           <Route path={RoutesConfig.Cabinet.path} element={<RoutesConfig.Cabinet.component />} />
         </Routes>
-
         <Footer/>
       </BrowserRouter>
     </>
