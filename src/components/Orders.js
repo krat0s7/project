@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { addOrder, deleteOrder, updateOrder } from '../state/orders/actions';
+import { deleteOrder, updateAddOrder, updateDeleteOrder } from '../state/orders/actions';
 
 export const Orders = () => {
   const dispatch = useDispatch();
@@ -12,28 +12,11 @@ export const Orders = () => {
   };
 
   const incrementQuantity = (id) => {
-    const order = orders.find(order => order.id === id);
-    if (order) {
-      dispatch(updateOrder({ ...order, quantity: order.quantity + 1 }));
-    }
+    dispatch(updateAddOrder(id));
   };
 
   const decrementQuantity = (id) => {
-    const order = orders.find(order => order.id === id);
-    if (order && order.quantity > 1) {
-      dispatch(updateOrder({ ...order, quantity: order.quantity - 1 }));
-    } else if (order && order.quantity === 1) {
-      dispatch(deleteOrder(id));
-    }
-  };
-
-  const handleAddToCart = (item) => {
-    const existingOrder = orders.find(order => order.id === item.id);
-    if (existingOrder) {
-      dispatch(updateOrder({ ...existingOrder, quantity: existingOrder.quantity + 1 }));
-    } else {
-      dispatch(addOrder({ ...item, quantity: 1 }));
-    }
+    dispatch(updateDeleteOrder(id));
   };
 
   const totalAmount = orders.reduce((total, order) => total + parseFloat(order.price) * order.quantity, 0);
@@ -45,7 +28,7 @@ export const Orders = () => {
       <h2 className='title-cart'>Корзина</h2>
       <ul>
         {orders.map((order) => (
-          <li key={order.name} className={"shopping-cart__item"}>
+          <li key={order.id} className={"shopping-cart__item"}>
             <img src={order.img} alt={order.title} width="50" />
             <span>
               {order.title} - {order.price} грн (кількість: {order.quantity})

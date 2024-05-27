@@ -1,3 +1,4 @@
 export const ADD_ORDER = 'ADD_ORDER';
 export const DELETE_ORDER = 'DELETE_ORDER';
-export const UPDATE_ORDER = 'DELETE_ORDER';
+export const UPDATE_ADD_ORDER = 'UPDATE_ADD_ORDER';
+export const UPDATE_DELETE_ORDER = 'UPDATE_DELETE_ORDER';

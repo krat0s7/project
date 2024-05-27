@@ -277,7 +277,6 @@ body {
     display: flex;
     justify-content: center;
     margin-bottom: 30px;
-    overflow-x: auto;
 }
 
 .categories div {
