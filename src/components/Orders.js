@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTrash } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteOrder, updateOrder } from '../state/orders/actions';
+import { addOrder, deleteOrder, updateOrder } from '../state/orders/actions';
 
 export const Orders = () => {
   const dispatch = useDispatch();
@@ -13,16 +13,26 @@ export const Orders = () => {
 
   const incrementQuantity = (id) => {
     const order = orders.find(order => order.id === id);
-  
     if (order) {
-      dispatch(updateOrder(order));
+      dispatch(updateOrder({ ...order, quantity: order.quantity + 1 }));
     }
   };
 
   const decrementQuantity = (id) => {
     const order = orders.find(order => order.id === id);
-    if (order && order.quantity > 0) {
+    if (order && order.quantity > 1) {
       dispatch(updateOrder({ ...order, quantity: order.quantity - 1 }));
+    } else if (order && order.quantity === 1) {
+      dispatch(deleteOrder(id));
+    }
+  };
+
+  const handleAddToCart = (item) => {
+    const existingOrder = orders.find(order => order.id === item.id);
+    if (existingOrder) {
+      dispatch(updateOrder({ ...existingOrder, quantity: existingOrder.quantity + 1 }));
+    } else {
+      dispatch(addOrder({ ...item, quantity: 1 }));
     }
   };
 
