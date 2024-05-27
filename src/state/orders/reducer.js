@@ -14,10 +14,25 @@ const initialState = {
 const ordersReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_ORDER:
-      return {
-        ...state,
-        orders: [...state.orders, action.payload]
-      };
+      const existingOrderIndex = state.orders.findIndex(order => order.id === action.payload.id);
+
+      if (existingOrderIndex === -1) {
+        return {
+          ...state,
+          orders: [...state.orders, action.payload]
+        };
+      } else {
+        // If it exists, increment the quantity
+        const updatedOrders = state.orders.map((order, index) =>
+          index === existingOrderIndex
+            ? { ...order, quantity: order.quantity + 1 }
+            : order
+        );
+        return {
+          ...state,
+          orders: updatedOrders
+        };
+      }
     case DELETE_ORDER:
       return {
         ...state,

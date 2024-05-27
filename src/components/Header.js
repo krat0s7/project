@@ -42,9 +42,9 @@ export default function Header() {
         </nav>
         <div className={`mobile-menu ${burgerActive ? "active" : ""}`}>
           <ul className='nav-list-mobile'>
-              <Link to={RoutesConfig.About.path}>Про нас</Link>
-              <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
-              <Link to={RoutesConfig.Cabinet.path}>Кабінет</Link>
+            <Link to={RoutesConfig.About.path} onClick={() => setBurgerActive(false)}>Про нас</Link>
+            <Link to={RoutesConfig.Contacts.path} onClick={() => setBurgerActive(false)}>Контакти</Link>
+            <Link to={RoutesConfig.Cabinet.path} onClick={() => setBurgerActive(false)}>Кабінет</Link>
             </ul>
         </div>
         {CartOpen && (
