@@ -1,7 +1,8 @@
 import MainPage from "../components/pages/MainPage"
 import AboutPage from "../components/pages/AboutPage"
 import ContactsPage from "../components/pages/ContactsPage"
-import CabinetPage from "../components/pages/CabinetPage"
+import CateringComponent from "../components/pages/CateringComponent"
+import CatalogComponent from "../components/pages/CatalogComponent"
 
 const RoutesConfig = {
   Main: {
@@ -16,9 +17,13 @@ const RoutesConfig = {
     path: "/contacts",
     component: ContactsPage,
   },
-  Cabinet: {
-    path: "/cabinet",
-    component: CabinetPage,
+  CateringComponent: {
+    path: "/CateringComponent",
+    component: CateringComponent,
+  },
+  CatalogComponent: {
+    path: "/CatalogComponent",
+    component: CatalogComponent,
   },
 };
 

@@ -1,22 +1,19 @@
-// CatalogComponent.js
-import React from 'react';
+import React, { useState } from 'react';
 import catalogData from './Catalog.json';
+import './Catalog.css';
+import Product from './Product';
 
 const CatalogComponent = () => {
+  
   return (
-    <div>
-      <h1>{catalogData.catalog.title}</h1>
+    <div className="container-catalog">
+      <h1 className="tit">{catalogData.catalog.title}</h1>
       {catalogData.catalog.categories.map((category, index) => (
         <div key={index}>
-          <h2>{category.name}</h2>
-          <div className="items">
+          <h2 className="section-title">{category.name}</h2>
+          <div className="its">
             {category.items.map((item, i) => (
-              <div key={i} className="item">
-                <img src={require(`../../img/${item.image}`).default} alt={item.name} />
-                <h3>{item.name}</h3>
-                <p>{item.description}</p>
-                <p>{item.price}</p>
-              </div>
+              <Product key={i} item={item} />
             ))}
           </div>
         </div>

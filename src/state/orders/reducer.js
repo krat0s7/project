@@ -22,7 +22,6 @@ const ordersReducer = (state = initialState, action) => {
           orders: [...state.orders, action.payload]
         };
       } else {
-        // If it exists, increment the quantity
         const updatedOrders = state.orders.map((order, index) =>
           index === existingOrderIndex
             ? { ...order, quantity: order.quantity + 1 }

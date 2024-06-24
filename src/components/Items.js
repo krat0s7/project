@@ -1,12 +1,12 @@
 import React from 'react';
 import Item from './Item';
 
-const Items = ({ items, addToCart }) => {
+const Items = ({ items }) => {
     return (
         <main>
             <div className='items'>
                 {items.map((el, index) => (
-                    <Item key={el.id} item={el} showButton={index === 0 || index === 4} />
+                    <Item key={el.id} item={el} index={index} />
                 ))}
             </div>
         </main>

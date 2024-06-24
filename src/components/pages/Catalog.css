@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+.container-catalog {
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  padding: 20px;
+  text-align: center;
+  transform: translateY(100px);
+}
+
+.tit {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  letter-spacing: 2px; 
+  border-bottom: 2px solid #1eff00;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+  padding: 15px;
+}
+
+.its {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.it {
+  width: 300px;
+  padding: 15px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* Додано для позиціонування кнопки */
+}
+
+.it img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.it-name {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #333;
+}
+
+.it-description {
+  margin-top: 10px;
+  color: #555;
+}
+
+.it-price {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #FF6347;
+}
+
+.add-to-cart-btn {
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background-color: #1eff00;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.add-to-cart-btn .plus-icon {
+  font-size: 24px;
+  line-height: 24px;
+}

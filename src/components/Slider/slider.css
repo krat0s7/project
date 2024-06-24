@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,600&display=swap');
+
+.main-slider-wrapper {
+  position: relative;
+  top: 10px;
+  left: 50%;
+  width: min(1276px, 90%);
+  transform: translateX(-50%);
+  padding-top: 90px;
+}
+
+.main-slider-container {
+  background-color: #222222;
+  border-radius: 24.44px;
+}
+
+.slide-image-1-0 {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+  border-radius: 24.44px;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  z-index: 100; 
+  padding: 85px 0px;
+ 
+}
+
+.slide-image-1-1 {
+  transform: rotate(-12deg) translateY(-310px);
+  z-index: 100;
+  position: absolute; 
+  left: 125px;
+
+}
+
+.slide-image-1-2 {
+  position: absolute; 
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.slide-text-container {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1;
+}
+
+.slide-text {
+  position: relative;
+  color: #e9e5e1;
+  font-size: 240px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%; 
+  line-height: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.slide-bottom-text {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #FCB852;
+  font-size: 24px;
+  z-index: 101; 
+}
+
+.price-highlight {
+  border: 4px solid #FCB852;
+  background-color: transparent;
+  color: #FCB852;
+  border-radius: 50px;
+  padding: 5px 10px;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.splide__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  color: #222222; 
+  text-align: center;
+  cursor: pointer;
+}
+
+.splide__arrow--prev {
+  left: 20px;
+}
+
+.splide__arrow--next {
+  right: 20px;
+}
+
+.custom-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.pagination-dot {
+  width: 9px;
+  height: 9px;
+  margin: 0 5px;
+  border-radius: 50%;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-dot.is-active {
+  background-color: #FCB852;
+}
