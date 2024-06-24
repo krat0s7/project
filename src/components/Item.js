@@ -2,7 +2,7 @@ import React from 'react';
 import { addOrder } from '../state/orders/actions';
 import { useDispatch } from 'react-redux';
 
-const Item = ({ item }) => {
+const Item = ({ item, showButton }) => {
     const dispatch = useDispatch();
 
     return (
@@ -12,9 +12,12 @@ const Item = ({ item }) => {
             </div>
             <div>
                 <h2>{item.title}</h2>
+                <h2>{item.set}</h2>
                 <p>{item.desc}</p>
                 <b className='item__price'>{item.price} грн</b>
-                <button className='add-to-cart' onClick={() => dispatch(addOrder(item))}>+</button>
+                {showButton && (
+                    <button className='add-to-cart' onClick={() => dispatch(addOrder(item))}>Добавити в кошик</button>
+                )}
             </div>
         </div>
     );

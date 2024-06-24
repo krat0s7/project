@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
-import { Orders } from './Orders';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import RoutesConfig from '../constants/Routes';
+import { ReactComponent as Logo } from "../img/logo.svg";
+import Orders from './Orders';
 
 export default function Header() { 
   const { orders } = useSelector(state => state.orders);
   const [CartOpen, setCartOpen] = useState(false);
-  const [burgerActive, setBurgerActive] = useState(false)
+  const [burgerActive, setBurgerActive] = useState(false);
   const nav = useNavigate();
 
   const toggleCart = () => {
@@ -18,12 +19,12 @@ export default function Header() {
       wrapperElement.classList.toggle('blur-background');
     }
   };
-  
+
   return (
     <header>
       <div>
         <nav className='nav'>
-          <p className='logo' onClick={() => nav(RoutesConfig.Main.path)}>Tasty</p> 
+          <Logo className='logo' onClick={() => nav(RoutesConfig.Main.path)} /> 
           <ul className='nav-list'>
             <Link to={RoutesConfig.About.path}>Про нас</Link>
             <Link to={RoutesConfig.Contacts.path}>Контакти</Link>
@@ -40,24 +41,13 @@ export default function Header() {
             <span className='burger-span'></span>
           </button>
         </nav>
-        <div className={`mobile-menu ${burgerActive ? "active" : ""}`}>
-          <ul className='nav-list-mobile'>
-            <Link to={RoutesConfig.About.path} onClick={() => setBurgerActive(false)}>Про нас</Link>
-            <Link to={RoutesConfig.Contacts.path} onClick={() => setBurgerActive(false)}>Контакти</Link>
-            <Link to={RoutesConfig.Cabinet.path} onClick={() => setBurgerActive(false)}>Кабінет</Link>
-            </ul>
-        </div>
-        {CartOpen && (
-          <div className={'cart-container'}>
-            <div className={orders.length !== 0 ? 'shop-cart' : "empty-cart"}>
-              {orders.length === 0 ? (
-                <p className='empty'>Товарів немає</p>
-              ) : (
-                <Orders />
-              )}
-            </div>
-          </div>
-        )}
+        <Orders 
+          orders={orders} 
+          CartOpen={CartOpen} 
+          toggleCart={toggleCart} 
+          burgerActive={burgerActive} 
+          setBurgerActive={setBurgerActive} 
+        />
       </div>
     </header>
   )

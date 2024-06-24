@@ -1,0 +1,58 @@
+{
+    "catalog": {
+        "title": "Каталог",
+        "categories": [
+            {
+                "name": "Закуски",
+                "items": [
+                    {
+                        "name": "Канапе з лососем",
+                        "description": "Світле тостове хліб з ніжним лососем.",
+                        "price": "50 грн/шт",
+                        "image": "canape_salmon.jpg"
+                    },
+                    {
+                        "name": "Міні-бургери",
+                        "description": "Соковитий м'ясний котлет в булочці з кунжутом.",
+                        "price": "70 грн/шт",
+                        "image": "mini_burger.jpg"
+                    }
+                ]
+            },
+            {
+                "name": "Основні страви",
+                "items": [
+                    {
+                        "name": "Куряче філе з овочами",
+                        "description": "Соковите куряче філе з свіжими овочами.",
+                        "price": "150 грн/порція",
+                        "image": "chicken_with_vegetables.jpg"
+                    },
+                    {
+                        "name": "Ризотто з грибами",
+                        "description": "Класичне ризотто з ароматними грибами.",
+                        "price": "120 грн/порція",
+                        "image": "risotto_with_mushrooms.jpg"
+                    }
+                ]
+            },
+            {
+                "name": "Десерти",
+                "items": [
+                    {
+                        "name": "Тірамісу",
+                        "description": "Класичний італійський десерт з маскарпоне.",
+                        "price": "80 грн/порція",
+                        "image": "tiramisu.jpg"
+                    },
+                    {
+                        "name": "Чізкейк",
+                        "description": "Ніжний чізкейк з вершковим сиром.",
+                        "price": "90 грн/порція",
+                        "image": "cheesecake.jpg"
+                    }
+                ]
+            }
+        ]
+    }
+}
